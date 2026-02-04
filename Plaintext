@@ -1,0 +1,6 @@
+education-impact-project/
+├── .gitignore          # Tells GitHub which files to ignore
+├── README.md           # The heart of your project (Description)
+├── requirements.txt    # List of dependencies
+├── main.py             # Your main application code
+└── data/               # Folder for educational datasets
