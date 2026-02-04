@@ -1,0 +1,40 @@
+import os
+from pptx import Presentation
+from pptx.util import Inches, Pt
+
+def create_presentation(project_name, code_directory):
+    prs = Presentation()
+
+    # --- Slide 1: Title Slide ---
+    slide_layout = prs.slide_layouts[0]
+    slide = prs.slides.add_slide(slide_layout)
+    slide.shapes.title.text = project_name
+    slide.placeholders[1].text = "AI-Generated Technical Overview\nImproving Education through Automation"
+
+    # --- Slide 2: Project Architecture ---
+    for filename in os.listdir(code_directory):
+        if filename.endswith(".py") or filename.endswith(".js"):
+            slide_layout = prs.slide_layouts[1]
+            slide = prs.slides.add_slide(slide_layout)
+            slide.shapes.title.text = f"File: {filename}"
+            
+            # Read code content
+            with open(os.path.join(code_directory, filename), 'r') as f:
+                content = f.read()[:500] # Get first 500 characters
+            
+            # Add code to slide
+            body = slide.placeholders[1]
+            body.text = content
+            
+            # Formatting for a code-look
+            tf = body.text_frame
+            for p in tf.paragraphs:
+                p.font.size = Pt(12)
+                p.font.name = 'Courier New'
+
+    prs.save(f'{project_name}_Presentation.pptx')
+    print(f"Success! {project_name}_Presentation.pptx created.")
+
+# To run: Ensure you have 'pip install python-pptx'
+if __name__ == "__main__":
+    create_presentation("EduTech_Hackathon", "./src")
