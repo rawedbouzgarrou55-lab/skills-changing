@@ -1,0 +1,13 @@
+# 🎓 AI-Edu: Hackathon 2026
+
+### **The Vision**
+To democratize high-quality education by using AI to provide a personalized mentor for every student on the planet.
+
+### **Tech Stack**
+* **Frontend:** React / Tailwind CSS
+* **Backend:** FastAPI (Python)
+* **AI Model:** Gemini API / LangChain
+* **Database:** Pinecone (Vector DB for learning materials)
+
+### **Key Innovation**
+Unlike static platforms, our AI tracks *emotional frustration* and *conceptual gaps* to adapt the difficulty level in real-time.
